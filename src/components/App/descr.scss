@@ -1,0 +1,25 @@
+.descr {
+    display: block;
+    
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+
+    margin-top: 10px;
+    padding: 0 20px;
+    &--align-left{
+        text-align: start;
+    }
+    &--red {
+        font-size: 25px;
+        font-weight: 600;
+        color: #fa5b2f;
+    }
+    &--letter-spacing {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 5px;
+    }
+}

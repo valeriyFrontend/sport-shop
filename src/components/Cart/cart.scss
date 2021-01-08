@@ -1,0 +1,15 @@
+.cart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__link-back {
+        display: block;
+    
+        text-align: center;
+        text-decoration: none;
+        color: #fa5b2f;
+    
+        margin-top: 20px;
+    }
+}

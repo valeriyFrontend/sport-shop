@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSlides } from '../../../redux/actions';
 import { database} from '../../../firebase';
@@ -25,6 +25,8 @@ class Slider extends Component {
 
     render() {
         const slides = this.props.slides;
+        if(!this.props.login) return <Redirect to={"/login"} />
+
         return (
             <section className="slider">
                 <Swiper spaceBetween={50} pagination={{ clickable: true }} effect="fade">
@@ -40,7 +42,8 @@ class Slider extends Component {
 
 function mapStateToProps(state) {
     return {
-        slides: state.slides
+        slides: state.slides,
+        login: state.login
     }
 }
 

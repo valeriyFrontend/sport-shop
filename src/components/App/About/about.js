@@ -1,3 +1,6 @@
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+
+
 import './about.scss';
 
 function About() {
@@ -9,4 +12,6 @@ function About() {
     )
 }
 
-export default About;
+let AuthRedirectComponent = withAuthRedirect(About);
+
+export default AuthRedirectComponent;

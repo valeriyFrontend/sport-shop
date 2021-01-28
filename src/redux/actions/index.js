@@ -28,5 +28,10 @@ const changeFullPrice = (...data) => {
         payload: data
     }
 }
+const addUser = () => {
+    return {
+        type: 'ADD_USER'
+    }
+}
 
-export { getProducts, getSlides, addToCart, removeCartItem, changeFullPrice }
+export { getProducts, getSlides, addToCart, removeCartItem, changeFullPrice, addUser }

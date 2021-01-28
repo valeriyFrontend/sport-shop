@@ -2,10 +2,11 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../../../redux/actions";
 import { database } from "../../../firebase";
-import Spinner from "../../UI/Spinner/Spinner";
-import Product from "./Product/product";
-import Filter from "./Filter/filter";
-import Sorting from './Sorting/sorting';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import Spinner from "../../UI/Spinner";
+import Product from "./Product";
+import Filter from "./Filter";
+import Sorting from './Sorting';
 
 import './products.scss';
 
@@ -57,4 +58,6 @@ const mapDispatchToProps = {
     getProducts
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+let AuthRedirectComponent = withAuthRedirect(Products)
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);

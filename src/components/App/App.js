@@ -1,19 +1,20 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from './Header/header'
-import Navigation from './Nav/nav'
-import Slider from './Slider/slider'
-import Products from './Products/products';
-import About from './About/about';
-import Contacts from './Contact/contacts';
-import Cart from './Cart/cart';
-import Product from './Product/product';
-import Login from './Auth/Login/login';
-import Registration from './Auth/Registration/registration';
+import Header from './Header'
+import Navigation from './Nav'
+import Slider from './Slider'
+import Products from './Products';
+import About from './About';
+import Contacts from './Contact';
+import Cart from './Cart';
+import Product from './Product';
+import Login from './Auth/Login';
+import Registration from './Auth/Registration';
 
 import './App.scss';
 import './descr.scss';
 import './title.scss';
+import './form.scss';
 
 function App() {
   

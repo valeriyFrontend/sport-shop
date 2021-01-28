@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
-import './contacts.scss';
+import './contact.scss';
 
 const SignupShema = Yup.object().shape({
     name: Yup.string()
@@ -19,30 +20,30 @@ const SignupShema = Yup.object().shape({
         .required('message field is required'),
 })
 
-class contacts extends Component {
+class contact extends Component {
     render() {
         return (
-            <section className="contacts">
+            <section className="contact">
                 <h1 className="title title--uppercase">Contact Us</h1>
                 <span className="descr descr--red descr--letter-spacing">We are happy to hear from you.</span>
                     <Formik
                         initialValues={{name: '', email: '', message: ''}}
                         validationSchema={SignupShema}
                         onSubmit={values => console.log(values)}>
-                            <Form>
-                                <div className="contacts__info">
-                                    <div className="contacts__field">
+                            <Form className="form">
+                                <div className="form__info">
+                                    <div className="form__field">
                                         <Field type="text" name="name" placeholder="Name"/>
                                         <ErrorMessage name="name" component="div" className="error-message"/>
                                     </div>
-                                    <div className="contacts__field">
+                                    <div className="form__field">
                                         <Field type="email" name="email" placeholder="Email"/>
                                         <ErrorMessage name="email" component="div" className="error-message"/>
                                     </div>
                                 </div>
-                                <textarea className="contacts__message" type="text" placeholder="Message" name="message"></textarea>
+                                <textarea className="form__message" type="text" placeholder="Message" name="message"></textarea>
                                 <ErrorMessage name="message" component="div" className="error-message"/>
-                                <button className="contacts__button" type="submit">
+                                <button className="form__button" type="submit">
                                     Send a message
                                 </button>
                             </Form>
@@ -52,4 +53,6 @@ class contacts extends Component {
     }
 }
 
-export default contacts;
+let AuthRedirectComponent = withAuthRedirect(contact)
+
+export default AuthRedirectComponent;

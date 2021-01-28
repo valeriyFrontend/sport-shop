@@ -1,7 +1,8 @@
 import { Component } from "react";
 import {connect} from 'react-redux';
-import { removeCartItem , changeFullPrice} from "../../../redux/actions/index";
+import { removeCartItem , changeFullPrice} from "../../../redux/actions";
 import { Link } from 'react-router-dom';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
 import './cart.scss';
 
@@ -65,6 +66,8 @@ class Cart extends Component {
     }
 }
 
+let AuthRedirectComponent = withAuthRedirect(Cart);
+
 function mapStateToProps(state) {
     return {
         items: state.items,
@@ -77,4 +80,4 @@ const mapDispatchToProps = {
     removeCartItem
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);

@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import firebase from 'firebase';
+import { auth } from '../../../../firebase';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
@@ -8,7 +8,7 @@ import './registration.scss';
 const SignupShema = Yup.object().shape({
     email: Yup.string()
         .min(4, 'To Short!')
-        .max(14, 'To Long!')
+        .max(30, 'To Long!')
         .required('email field is required'),
     password: Yup.string()
         .min(4, 'To Short!')
@@ -23,13 +23,13 @@ const SignupShema = Yup.object().shape({
         })
 })
 
-// firebase.auth().createUserWithEmailAndPassword(email, password)
-//   .then((user) => {
-//     console.log(user);
-//   })
-//   .catch((error) => {
-//     console.log(error.code);
-// });
+const addUser = (email, password) => auth.createUserWithEmailAndPassword(email, password)
+  .then((user) => {
+    console.log(user);
+  })
+  .catch((error) => {
+    console.log(error.code);
+});
 
 class registration extends Component {
     render() {
@@ -38,24 +38,27 @@ class registration extends Component {
                 <h1 className="title title--uppercase">Registration</h1>
                     <Formik
                         initialValues={{email: '', password: '', confirmPassword: ''}}
+                        onSubmit={value => {
+                            addUser(value.email, value.password);
+                        }}
                         validationSchema={SignupShema}
                     >
-                        <Form>
-                            <div className="registration__info">
-                                <div className="registration__field">
+                        <Form className="form">
+                            <div className="form__info form__info--direction">
+                                <div className="form__field form__field--margin">
                                     <Field type="email" name="email" placeholder="Email"/>
                                     <ErrorMessage name="email" component="div" className="error-message"/>
                                 </div>
-                                <div className="registration__field">
+                                <div className="form__field form__field--margin">
                                     <Field type="password" name="password" placeholder="Password"/>
                                     <ErrorMessage name="password" component="div" className="error-message"/>
                                 </div>
-                                <div className="registration__field">
+                                <div className="form__field">
                                     <Field type="password" name="confirmPassword" placeholder="Confirm password"/>
                                     <ErrorMessage name="confirmPassword" component="div" className="error-message"/>
                                 </div>
                             </div>
-                            <button className="registration__button" type="submit">
+                            <button className="form__button form__button--width" type="submit">
                                 Registration Account
                             </button>
                         </Form>

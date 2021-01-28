@@ -3,7 +3,8 @@ const initialState = {
   name: 'Valeriy',
   products: [],
   items: [],
-  slides: []
+  slides: [],
+  login: true
 }
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +35,11 @@ const reducer = (state = initialState, action) => {
               return {
                   ...state,
                     fullPrice: state.fullPrice + action.payload[0]
+              }
+            case 'ADD_USER':
+              return {
+                  ...state,
+                    login: true
               }
         default:
             return state

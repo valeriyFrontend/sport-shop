@@ -5,26 +5,6 @@
     img {
         width: 100%;
     }
-    &__button-products {
-        font-weight: 600;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #fff;
-    
-        padding: 20px 100px;
-        background-color: #fa5b2f;
-    
-        position: absolute;
-        left: 50%;
-        bottom: 50px;
-        transform: translateX(-50%);
-        z-index: 1;
-        transition: .3s;
-        &:hover {
-            color: #fa5b2f;
-            background-color: #fff;
-        }
-    }
 }
 .swiper {
     &-slide {

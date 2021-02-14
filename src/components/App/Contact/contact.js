@@ -1,7 +1,8 @@
 import { Component } from 'react';
-import { ErrorMessage, Field, Formik, Form } from 'formik';
+import { ErrorMessage, Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import Input from '../../UI/Input';
+import FormButton from "../../UI/Buttons/FormButton";
 
 import './contact.scss';
 
@@ -21,6 +22,35 @@ const SignupShema = Yup.object().shape({
 })
 
 class contact extends Component {
+    constructor() {
+        super();
+        this.state = {
+            inputs: [
+                {
+                    name: 'name',
+                    type: 'text',
+                    placeholder: 'Name'
+                },
+                {
+                    name: 'email',
+                    type: 'email',
+                    placeholder: 'Email'
+                }
+            ]
+        }
+    }
+    renderInput = () => {
+        return this.state.inputs.map((input, index) => {
+            return (
+                <Input 
+                    key={index}
+                    name={input.name}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                />
+            )
+        })
+    }
     render() {
         return (
             <section className="contact">
@@ -32,20 +62,11 @@ class contact extends Component {
                         onSubmit={values => console.log(values)}>
                             <Form className="form">
                                 <div className="form__info">
-                                    <div className="form__field">
-                                        <Field type="text" name="name" placeholder="Name"/>
-                                        <ErrorMessage name="name" component="div" className="error-message"/>
-                                    </div>
-                                    <div className="form__field">
-                                        <Field type="email" name="email" placeholder="Email"/>
-                                        <ErrorMessage name="email" component="div" className="error-message"/>
-                                    </div>
+                                    {this.renderInput()}
+                                    <textarea className="form__message" type="text" placeholder="Message" name="message"></textarea>
+                                    <ErrorMessage name="message" component="div" className="error-message"/>
+                                    <FormButton name={'Send a message'}/>
                                 </div>
-                                <textarea className="form__message" type="text" placeholder="Message" name="message"></textarea>
-                                <ErrorMessage name="message" component="div" className="error-message"/>
-                                <button className="form__button" type="submit">
-                                    Send a message
-                                </button>
                             </Form>
                     </Formik>
                 </section>
@@ -53,6 +74,4 @@ class contact extends Component {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(contact)
-
-export default AuthRedirectComponent;
+export default contact;

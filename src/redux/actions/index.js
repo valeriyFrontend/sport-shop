@@ -28,10 +28,11 @@ const changeFullPrice = (...data) => {
         payload: data
     }
 }
-const addUser = () => {
+const setClient = (...data) => {
     return {
-        type: 'ADD_USER'
+        type: 'SET_CLIENT',
+        payload: data
     }
 }
 
-export { getProducts, getSlides, addToCart, removeCartItem, changeFullPrice, addUser }
+export { getProducts, getSlides, addToCart, removeCartItem, changeFullPrice, setClient }

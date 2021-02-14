@@ -2,7 +2,6 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../../../redux/actions";
 import { database } from "../../../firebase";
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import Spinner from "../../UI/Spinner";
 import Product from "./Product";
 import Filter from "./Filter";
@@ -22,8 +21,16 @@ class Products extends Component {
         const productsRef = database.ref().child('products');
 
         productsRef.on('value', snap => {
-            this.props.getProducts(snap.val());
-            this.setState({products: this.props.products});
+            let productsArr = [];
+            const products = snap.val();
+
+            for(let key in products) {
+                const product = products[key]
+                product.id = key;
+                productsArr.push(product);
+            }
+            this.props.getProducts(productsArr);
+            this.setState({products: productsArr});
         });
     }
 
@@ -58,6 +65,4 @@ const mapDispatchToProps = {
     getProducts
 }
 
-let AuthRedirectComponent = withAuthRedirect(Products)
-
-export default connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

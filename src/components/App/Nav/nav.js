@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import './navigation.scss';
 
 function closeMenu() {
@@ -14,11 +15,11 @@ function Navigation() {
         <>
             <nav className="nav">
                 <span className="nav__button-close" onClick={closeMenu}>&#10006;</span>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/products">Shop</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contacts">Contact</Link></li>
+                <ul className="nav__list">
+                    <li className="nav__list-link"><NavLink activeClassName="selected" exact to="/">Home</NavLink></li>
+                    <li className="nav__list-link"><NavLink activeClassName="selected" to="/products">Shop</NavLink></li>
+                    <li className="nav__list-link"><NavLink activeClassName="selected" to="/about">About</NavLink></li>
+                    <li className="nav__list-link"><NavLink activeClassName="selected" to="/contacts">Contact</NavLink></li>
                 </ul>
             </nav>
             <div className="overlay" onClick={closeMenu}></div>

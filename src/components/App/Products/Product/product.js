@@ -5,15 +5,17 @@ import './product.scss';
 
 class Product extends Component { 
     render() {
+        let products = this.props.products;
+
         return (
             <Fragment>
-                {this.props.products?.map((item, index) => 
+                {products && products.map((product, index) => 
                     <div className="products__item" key={index}>
-                        <Link className="products__item-inner"  to={`/product/${item.id}`}>
-                            <img src={item.images[0]} alt="shoose" />
+                        <Link className="products__item-inner"  to={`/product/${product.id}`}>
+                            <img src={product.image} alt="shoose" />
                             <div className="products__item-descr">
-                                <div className="products__item-title">{item.name}</div>
-                                <div className="item__price">{item.price} $</div>
+                                <div className="products__item-title">{product.name}</div>
+                                <div className="item__price">{product.price} $</div>
                             </div>
                         </Link>
                     </div>

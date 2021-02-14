@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 
 class Sorting extends Component {
     render() {
+        let products = this.props.products;
+
         const sortProduct = (event) => {
             const value = event.target.value;
-            let products = this.props.products;
 
             switch (value) {
                 case '-price':
@@ -26,7 +27,7 @@ class Sorting extends Component {
                     break;
                 default: return products
             }
-           this.props.changeState(products);
+            this.props.changeState(products);
         };
 
         return (

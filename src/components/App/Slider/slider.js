@@ -1,10 +1,10 @@
 import { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSlides } from '../../../redux/actions';
 import { database} from '../../../firebase';
 import SwiperCore, { Pagination, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import LinkButton from '../../UI/Buttons/LinkButton';
 
 import "swiper/swiper.scss";
 import 'swiper/components/pagination/pagination.scss';
@@ -25,7 +25,6 @@ class Slider extends Component {
 
     render() {
         const slides = this.props.slides;
-        if(!this.props.login) return <Redirect to={"/login"} />
 
         return (
             <section className="slider">
@@ -34,7 +33,7 @@ class Slider extends Component {
                         <SwiperSlide key={index}><img src={item} alt={"slide"}/></SwiperSlide>
                     )}
                 </Swiper>
-                <Link className="slider__button-products" to="/products">Shop now</Link>
+                <LinkButton name={'Shop now'} path={'/products'}/>
             </section>
         )
     }

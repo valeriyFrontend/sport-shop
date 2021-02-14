@@ -1,5 +1,5 @@
 import { Component, Fragment } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { getProducts, addToCart, changeFullPrice } from '../../../redux/actions/index'; 
 import { database } from "../../../firebase";
 import Spinner from '../../UI/Spinner/Spinner';
@@ -17,8 +17,9 @@ class Product extends Component {
     componentDidMount() {
         const rootRef = database.ref('products').child(this.props.match.params.id);
 
-        rootRef.on('value', snapshot => {
-            this.setState({product: snapshot.val()})
+        rootRef.on('value', snap => {
+            let product = snap.val();
+            this.setState({product})
         });
     }
 
@@ -49,12 +50,12 @@ class Product extends Component {
                     <div className="product__item">
                         <div className="product__galery">
                             <div className="product__galery-inner">
-                                    <img src={this.state.fullImage ? this.state.fullImage  :  product.images[0]} alt="shoes" className="product__full-img" />
+                                    <img src={this.state.fullImage ? this.state.fullImage  :  product.image} alt="shoes" className="product__full-img" />
                                     <div className="product__more-img">
-                                    {product.images.map((item, index) => 
+                                    {/* {product.image.map((item, index) => 
                                     <Fragment  key={index}>
                                         <img src={item} alt="shoes" className="product__sub-img" onClick={this.changeImage.bind(this)}/>
-                                    </Fragment>)}
+                                    </Fragment>)} */}
                                     </div>
                                 <div className="product__more-img">
                                 </div>
@@ -74,7 +75,8 @@ class Product extends Component {
 function mapStateToProps(state) {
     return {
       items: state.items,
-      counter: state.counter
+      counter: state.counter,
+      products: state.products
     }
 }
 const mapDispatchToProps = {

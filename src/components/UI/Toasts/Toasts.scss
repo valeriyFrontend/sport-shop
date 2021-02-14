@@ -1,0 +1,39 @@
+.toast {
+    font-weight: bold;
+    color: #fff;
+    min-width: 250px;
+    padding: 20px 50px;
+    border-radius: 5px;
+    position: fixed;
+    right: 25px;
+    top: 25px;
+    z-index: 2;
+    visibility: hidden;
+    &__success {
+        background-color: #4caf50;
+    }
+    &__error {
+        background-color: red;
+    }
+    &__show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.6s;
+    }
+}
+
+@keyframes fadein{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeout{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

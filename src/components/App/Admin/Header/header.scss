@@ -1,0 +1,25 @@
+.header-admin {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px;
+    border-bottom: 1px rgb(22, 22, 22) solid;
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+    &__name {
+        margin-right: 5px;
+    }
+}
+.imageBoundary {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border: 1px #ccc solid;
+    border-radius: 100%;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}

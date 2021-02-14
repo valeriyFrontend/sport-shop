@@ -1,9 +1,6 @@
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
-
-
 import './about.scss';
 
-function About() {
+const About = () => {
     return (
         <section className="about">
             <h1 className="title">About Us</h1>
@@ -12,6 +9,4 @@ function About() {
     )
 }
 
-let AuthRedirectComponent = withAuthRedirect(About);
-
-export default AuthRedirectComponent;
+export default About;

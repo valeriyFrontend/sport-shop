@@ -43,8 +43,9 @@ class Cart extends Component {
                     <div className="items-inner">{
                         items.map((item, index) => 
                         <div className="item" key={index}>
+                            {console.log(item)}
                             <span className="item__button-close" onClick={() => this.props.removeCartItem(item.price, item)}>&#10006;</span>
-                            <img className="item__img" src={item.images[0]} alt={item.name}/>
+                            <img className="item__img" src={item.image} alt={item.name}/>
                             <h1 className="item__name">{item.name}</h1>
                             <span className="item__price">${item.price}.00</span>
                             <span>{this.props.count}</span>

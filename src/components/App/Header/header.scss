@@ -12,14 +12,14 @@
     position: fixed;
     top: 0;
     z-index: 2;
-    &__login {
-
+    &__log-out-button {
+        cursor: pointer;
     }
     &__button-menu, &__cart {
         text-transform: uppercase;
         text-decoration: none;
         color: #000;
-        margin-left: 10px;
+        margin: 0 10px;
         cursor: pointer;
     }
     &__logo {

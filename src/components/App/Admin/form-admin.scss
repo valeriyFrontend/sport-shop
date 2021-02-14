@@ -1,0 +1,40 @@
+.form-admin {
+    width: 500px;
+    margin: 100px auto;
+    &__field {
+        width: 100%;
+        padding: 15px 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: none;
+        border-bottom: 1px #000 solid;
+    }
+    &__half-width {
+        display: flex;
+        justify-content: space-between;
+        .form-field-admin {
+            width: 48%;
+        }
+    }
+    &__select-photo {
+        display: block;
+        padding-bottom: 15px;
+    }
+    &__button {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 8px 25px;
+        background-color: #fff;
+        border: 1px #000 solid;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+.form-field-admin {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.error-message-admin {
+    font-size: 14px;
+    color: rgb(202, 26, 26);
+}

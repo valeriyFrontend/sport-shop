@@ -66,6 +66,7 @@ class contact extends Component {
                                     <textarea className="form__message" type="text" placeholder="Message" name="message"></textarea>
                                     <ErrorMessage name="message" component="div" className="error-message"/>
                                     <FormButton name={'Send a message'}/>
+                                    <div>New test</div>
                                 </div>
                             </Form>
                     </Formik>

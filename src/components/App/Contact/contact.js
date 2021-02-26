@@ -51,6 +51,7 @@ class contact extends Component {
             )
         })
     }
+
     render() {
         return (
             <section className="contact">

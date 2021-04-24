@@ -27,9 +27,6 @@ function mapStateToProps(state) {
     client: state.client
   }
 }
-
-//test text
-
 const mapDispatchToProps = {
   setClient
 }

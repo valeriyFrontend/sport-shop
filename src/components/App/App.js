@@ -15,7 +15,7 @@ const App = () => {
         <Router>
             <Route path="/" component={Main}/>
             <Route path="/admin" component={Admin} />
-            //test
+            //test master
         </Router>
       </div>
     );

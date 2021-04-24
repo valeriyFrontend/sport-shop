@@ -15,7 +15,6 @@ const App = () => {
         <Router>
             <Route path="/" component={Main}/>
             <Route path="/admin" component={Admin} />
-            //text
         </Router>
       </div>
     );

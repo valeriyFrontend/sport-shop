@@ -12,14 +12,15 @@ import './form.scss';
 //test master
 
 const App = () => {
-    return (
-      <div className="App">
-        <Router>
-            <Route path="/" component={Main}/>
-            <Route path="/admin" component={Admin} />
-        </Router>
-      </div>
-    );
+  return (
+    <div className="App">
+      <Router>
+        <Route path="/" component={Main} />
+        <Route path="/admin" component={Admin} />
+      </Router>
+      test
+    </div>
+  );
 }
 
 function mapStateToProps(state) {

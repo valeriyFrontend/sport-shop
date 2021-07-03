@@ -1,36 +1,58 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 25px;
+
+  background-color: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  &__logo {
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 5px;
+    color: #000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__info {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 10px;
+  }
+  &__log-out-button {
+    cursor: pointer;
+  }
+  &__button-menu {
+    width: 25px;
+    height: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+  &__cart {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+}
 
-    width: 100%;
-    padding: 25px;
-
-    background-color: #fff;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-
-    position: fixed;
-    top: 0;
-    z-index: 2;
-    &__log-out-button {
-        cursor: pointer;
-    }
-    &__button-menu, &__cart {
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #000;
-        margin: 0 10px;
-        cursor: pointer;
+@media (max-width: 768px) {
+  .header {
+    &__cart {
+      margin: 0 10px;
     }
     &__logo {
-        font-size: 40px;
-        font-weight: 500;
-        text-transform: uppercase;
-        text-decoration: none;
-        letter-spacing: 5px;
-        color: #000;
-        position: absolute;
-        left: 50%;
-        transform:translateX(-50%);
+      display: none;
     }
+  }
 }

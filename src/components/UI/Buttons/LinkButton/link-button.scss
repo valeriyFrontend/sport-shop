@@ -1,25 +1,24 @@
 .link-button {
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #fff;
-
-    padding: 20px 100px;
-    background-color: #fa5b2f;
-
-    position: absolute;
-    left: 50%;
-    bottom: 50px;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: .3s;
-    &:hover {
-        color: #fa5b2f;
-        background-color: #fff;
-    }
-    &__404 {
-        padding: 15px 80px;
-        border: 3px #fa5b2f solid;
-        bottom: 120px;
-    }
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 100px;
+  background-color: #fa5b2f;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  z-index: 1;
+  transition: 0.3s;
+  &:hover {
+    color: #fa5b2f;
+    background-color: #fff;
+  }
+  &__404 {
+    padding: 15px 80px;
+    border: 3px #fa5b2f solid;
+    bottom: 120px;
+  }
 }

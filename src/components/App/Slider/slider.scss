@@ -1,27 +1,39 @@
 .slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  &_slide {
+    background-position: center;
+    background-size: cover;
     height: 100vh;
-    overflow: hidden;
-    position: relative;
-    img {
-        width: 100%;
-    }
+  }
 }
 .swiper {
-    &-slide {
-        height: 100vh;
+  &-slide {
+    height: 100vh;
+  }
+  &-pagination {
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+  &-pagination-bullet {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    opacity: 1;
+    &-active {
+      background-color: #fa5b2f;
     }
+  }
+}
+
+@media (min-width: 768) {
+  .swiper {
     &-pagination {
-        text-align: left;
-        margin-left: 50px;
-        margin-bottom: 20px;
+      text-align: left;
+      margin-left: 50px;
+      margin-bottom: 20px;
     }
-    &-pagination-bullet {
-        width: 18px;
-        height: 18px;
-        background-color: #fff;
-        opacity: 1;
-        &-active {
-            background-color: #fa5b2f;
-        }
-    }
+  }
 }

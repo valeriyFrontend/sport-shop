@@ -1,4 +1,16 @@
-.contact {
-    width: 50%;
-    margin: 150px auto 0;
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 150px 20px;
+  &__form {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts {
+    padding: 100px 20px;
+  }
 }

@@ -1,12 +1,19 @@
 .sign-in {
-    width: 500px;
-    margin: 150px auto 0;
-    &__registration-button {
-        display: block;
-        text-decoration: underline;
-        margin-top: 10px;
-        &:hover {
-            text-decoration: none;
-        }
+  max-width: 500px;
+  margin: 150px auto 10px;
+  padding: 0 10px;
+  &__registration-button {
+    display: block;
+    text-decoration: underline;
+    margin-top: 10px;
+    &:hover {
+      text-decoration: none;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .sign-in {
+    margin-top: 100px;
+  }
 }

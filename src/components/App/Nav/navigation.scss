@@ -1,70 +1,77 @@
 .nav {
-    display: none;
-    
-    height: 100vh;
-
-    background-color: #15171f;
-
-    overflow: hidden;
-
-    position: fixed;
-    top: 0;
-    z-index: 3;
-    &__button-close {
-        font-size: 25px;
-        color: #fff;
-
-        position: absolute;
-        top: 25px;
-        right: 40px;
-        cursor: pointer;
+  max-width: 25%;
+  width: 100%;
+  height: 100vh;
+  background-color: #15171f;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: -25%;
+  z-index: 3;
+  transition: 0.5s;
+  &__button-close {
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+  }
+  &__list {
+    margin-top: 100px;
+  }
+  &__list-link {
+    display: block;
+  }
+  & a {
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+  }
+  a:hover,
+  a.selected {
+    color: #fa5b2f;
+  }
+  &__list-link-admin:hover li {
+    display: block;
+    line-height: 40px;
+  }
+  &__sub-nav {
+    padding-left: 30px;
+    margin: 0;
+    position: absolute;
+    li {
+      display: none;
+      padding: 0;
     }
-    &__list {
-        margin-top: 100px;
+    a {
+      font-size: 25px;
     }
-    &__list-link {
-        display: block;
-        
-        padding: 0 150px 0 100px;
-    }
-    & a {
-        font-size: 40px;
-        font-weight: 500;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: #fff;
-    }
-    a:hover, a.selected {
-        color: #fa5b2f;
-    }
-    &__list-link-admin:hover li{
-        display: block;
-        line-height: 40px;
-    }
-    &__sub-nav {
-        padding-left: 30px;
-        margin: 0;
-        position: absolute;
-        li {
-            display: none;
-            padding: 0;
-        }
-        a {
-            font-size: 25px;
-        }
-    }
+  }
 }
 .show {
-    display: block;
-} 
+  display: flex;
+  justify-content: center;
+  left: 0;
+}
 .back-bg {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  opacity: 0.3;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
 
-    background: #000;
-    opacity: .3;
-
-    position: fixed;
-    top: 0;
-    z-index: 2;
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    max-width: 80%;
+  }
+  .show {
+    display: flex;
+  }
 }

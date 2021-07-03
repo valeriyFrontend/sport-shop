@@ -1,48 +1,64 @@
 .products {
-    &__item {
-        flex-basis: 33%;
-    
-        transition: .5s;
-        cursor: pointer;
-        position: relative;
-    }
-    &__item-inner {
-        display: block;
+  &__item {
+    flex-basis: 33%;
 
-        width: 100%;
-        padding-bottom: 100px;
-    
-        transition: .5s;
-        img {
-            width: 100%;
-        }
+    transition: 0.5s;
+    cursor: pointer;
+    position: relative;
+  }
+  &__item-inner {
+    display: block;
+
+    width: 100%;
+    padding-bottom: 100px;
+
+    transition: 0.5s;
+    img {
+      width: 100%;
     }
-    &__item:hover &__item-inner {
-        transform: scale(1.1);
-    
-        box-shadow: 0px 0px 15px rgba(195, 195, 195, 0.6);
-        background-color: #FFFFFF;
+  }
+  &__item:hover &__item-inner {
+    transform: scale(1.1);
+
+    box-shadow: 0px 0px 15px rgba(195, 195, 195, 0.6);
+    background-color: #ffffff;
+  }
+  &__item:hover &__item-descr {
+    display: block;
+  }
+  &__item-descr {
+    display: none;
+
+    text-align: center;
+    font-weight: 500;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__item-title {
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+  &__item-price {
+    font-size: 18px;
+    color: #fa5b2f;
+
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .products {
+    &__item {
+      flex-basis: 100%;
     }
-    &__item:hover &__item-descr {
-        display: block;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .products {
+    &__item {
+      flex-basis: 50%;
     }
-    &__item-descr {
-        display: none;
-    
-        text-align: center;
-        font-weight: 500;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    &__item-title {
-        font-size: 25px;
-        text-transform: uppercase;
-    }
-    &__item-price {
-        font-size: 18px;
-        color: #fa5b2f;
-    
-        margin-top: 10px;
-    }
+  }
 }

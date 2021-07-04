@@ -4,8 +4,13 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin-top: 200px;
   &__descr {
     max-width: 1000px;
+  }
+}
+
+@media (max-width: 765px) {
+  .about {
+    margin-top: 250px;
   }
 }

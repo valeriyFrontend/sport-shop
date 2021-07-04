@@ -1,9 +1,13 @@
+import { useTranslation } from "react-i18next";
+
 import "./about.scss";
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="about">
-      <h1 className="title">About Us</h1>
+      <h1 className="title">{t("about_us")}</h1>
       <span className="about__descr descr descr--align-left">
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
         ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis

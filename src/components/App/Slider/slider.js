@@ -1,7 +1,8 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { getSlides } from "../../../redux/actions";
 import { database } from "../../../firebase";
+import { useTranslation } from "react-i18next";
 import SwiperCore, { Pagination, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import LinkButton from "../../UI/Buttons/LinkButton";
@@ -13,38 +14,32 @@ import "./slider.scss";
 
 SwiperCore.use([Pagination, EffectFade]);
 
-class Slider extends Component {
-  componentDidMount() {
+function Slider({ slides, getSlides }) {
+  const { t } = useTranslation();
+
+  useEffect(() => {
     const productsRef = database.ref().child("slides");
 
     productsRef.on("value", (snap) => {
-      this.props.getSlides(snap.val());
+      getSlides(snap.val());
     });
-  }
+  }, [getSlides]);
 
-  render() {
-    const slides = this.props.slides;
-
-    return (
-      <section className="slider">
-        <Swiper
-          spaceBetween={50}
-          pagination={{ clickable: true }}
-          effect="fade"
-        >
-          {slides.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="slider_slide"
-                style={{ backgroundImage: `url(${item}` }}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <LinkButton name={"Shop now"} path={"/products"} />
-      </section>
-    );
-  }
+  return (
+    <section className="slider">
+      <Swiper spaceBetween={50} pagination={{ clickable: true }} effect="fade">
+        {slides.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="slider_slide"
+              style={{ backgroundImage: `url(${item}` }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <LinkButton name={t("shop_now")} path={"/products"} />
+    </section>
+  );
 }
 
 function mapStateToProps(state) {

@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ErrorMessage, Formik, Form } from "formik";
 import * as Yup from "yup";
 import Input from "../../UI/Input";
@@ -21,26 +22,24 @@ const SignupShema = Yup.object().shape({
     .required("message field is required"),
 });
 
-class contact extends Component {
-  constructor() {
-    super();
-    this.state = {
-      inputs: [
-        {
-          name: "name",
-          type: "text",
-          placeholder: "Name",
-        },
-        {
-          name: "email",
-          type: "email",
-          placeholder: "Email",
-        },
-      ],
-    };
-  }
-  renderInput = () => {
-    return this.state.inputs.map((input, index) => {
+function Contact() {
+  const { t } = useTranslation();
+
+  const [inputs] = useState([
+    {
+      name: "name",
+      type: "text",
+      placeholder: t("name"),
+    },
+    {
+      name: "email",
+      type: "email",
+      placeholder: "Email",
+    },
+  ]);
+
+  const renderInput = () => {
+    return inputs.map((input, index) => {
       return (
         <Input
           key={index}
@@ -52,41 +51,39 @@ class contact extends Component {
     });
   };
 
-  render() {
-    return (
-      <section className="contacts">
-        <div className="contacts__form">
-          <h1 className="title title--uppercase">Contact Us</h1>
-          <span className="descr descr--red descr--letter-spacing">
-            We are happy to hear from you.
-          </span>
-          <Formik
-            initialValues={{ name: "", email: "", message: "" }}
-            validationSchema={SignupShema}
-            onSubmit={(values) => console.log(values)}
-          >
-            <Form className="form">
-              <div className="form__info">
-                {this.renderInput()}
-                <textarea
-                  className="form__message"
-                  type="text"
-                  placeholder="Message"
-                  name="message"
-                ></textarea>
-                <ErrorMessage
-                  name="message"
-                  component="div"
-                  className="error-message"
-                />
-                <FormButton name={"Send a message"} />
-              </div>
-            </Form>
-          </Formik>
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="contacts">
+      <div className="contacts__form">
+        <h1 className="title title--uppercase">{t("contact_us")}</h1>
+        <span className="descr descr--red descr--letter-spacing">
+          {t("happy_to_hear_you")}
+        </span>
+        <Formik
+          initialValues={{ name: "", email: "", message: "" }}
+          validationSchema={SignupShema}
+          onSubmit={(values) => console.log(values)}
+        >
+          <Form className="form">
+            <div className="form__info">
+              {renderInput()}
+              <textarea
+                className="form__message"
+                type="text"
+                placeholder={t("message")}
+                name="message"
+              ></textarea>
+              <ErrorMessage
+                name="message"
+                component="div"
+                className="error-message"
+              />
+              <FormButton name={t("send_a_message")} />
+            </div>
+          </Form>
+        </Formik>
+      </div>
+    </section>
+  );
 }
 
-export default contact;
+export default Contact;

@@ -30,13 +30,43 @@
   &__log-out-button {
     cursor: pointer;
   }
-  &__button-menu {
+  &__button-menu,
+  &__button-globe {
     width: 25px;
     height: 25px;
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
     cursor: pointer;
+  }
+  &__languages-list {
+    position: relative;
+  }
+  &__button-globe {
+    border: none;
+    background: #fff;
+    color: rgb(43, 43, 175);
+  }
+  &__languages {
+    position: absolute;
+    right: 0;
+    border: 1px #000 solid;
+    border-radius: 3px;
+    background: #fff;
+    overflow: hidden;
+  }
+  &__languages-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    padding: 10px 50px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    &:hover {
+      background: #ccc;
+    }
   }
   &__cart {
     text-transform: uppercase;

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import "./navigation.scss";
 
@@ -11,6 +12,8 @@ function closeMenu() {
 }
 
 function Navigation() {
+  const { t } = useTranslation();
+
   return (
     <>
       <nav className="nav">
@@ -20,22 +23,22 @@ function Navigation() {
         <ul className="nav__list">
           <li className="nav__list-link">
             <NavLink activeClassName="selected" exact to="/">
-              Home
+              {t("home")}
             </NavLink>
           </li>
           <li className="nav__list-link">
             <NavLink activeClassName="selected" to="/products">
-              Shop
+              {t("shop")}
             </NavLink>
           </li>
           <li className="nav__list-link">
             <NavLink activeClassName="selected" to="/about">
-              About
+              {t("about")}
             </NavLink>
           </li>
           <li className="nav__list-link">
             <NavLink activeClassName="selected" to="/contacts">
-              Contact
+              {t("contacts")}
             </NavLink>
           </li>
         </ul>

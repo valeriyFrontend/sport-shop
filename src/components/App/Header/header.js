@@ -1,8 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setClient } from "../../../redux/actions";
 import { ReactComponent as MenuIcon } from "../../../icons/menu.svg";
+import { GlobeAltIcon } from "@heroicons/react/outline";
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 import "./header.scss";
 
@@ -14,51 +17,90 @@ function openNav() {
   overlay.classList.add("back-bg");
 }
 
-class Header extends React.Component {
-  logOut() {
+const languages = [
+  {
+    code: "en",
+    name: "English",
+    country_code: "gb",
+  },
+  {
+    code: "ru",
+    name: "Руский",
+    country_code: "ru",
+  },
+];
+
+function Header({ items, client, fullPrice, setClient }) {
+  const [showLanguages, setShowLanguages] = useState(false);
+  const { t } = useTranslation();
+
+  const logOut = () => {
     localStorage.removeItem("uid");
-    this.props.setClient("");
-  }
-  render() {
-    let client = this.props.client;
-    return (
-      <header className="header">
-        <span className="header__button-menu" onClick={openNav}>
-          <MenuIcon />
-        </span>
-        <Link className="header__logo" to="/">
-          Sport-Shop
-        </Link>
-        <div className="header__info">
-          {client.role === "admin" ? (
-            <Link className="header__user-role" to="/admin/catalog">
-              {client.role}
-            </Link>
-          ) : client.role === "user" ? (
-            ""
-          ) : (
-            <Link className="header__user-role" to="/login">
-              Sign in
-            </Link>
-          )}
-          <Link className="header__cart" to="/cart">
-            <span>
-              ${this.props.fullPrice}.00 ({this.props.items.length}){" "}
-            </span>
-            Cart
+    setClient("");
+  };
+
+  return (
+    <header className="header">
+      <span className="header__button-menu" onClick={openNav}>
+        <MenuIcon />
+      </span>
+      <Link className="header__logo" to="/">
+        Sport-Shop
+      </Link>
+      <div className="header__info">
+        {client.role === "admin" ? (
+          <Link className="header__user-role" to="/admin/catalog">
+            {client.role}
           </Link>
-          {client.role && (
-            <span
-              className="header__log-out-button"
-              onClick={this.logOut.bind(this)}
-            >
-              Log Out
-            </span>
-          )}
+        ) : client.role === "user" ? (
+          ""
+        ) : (
+          <Link className="header__user-role" to="/login">
+            {t("sign_in")}
+          </Link>
+        )}
+        <Link className="header__cart" to="/cart">
+          <span>
+            ${fullPrice}.00 ({items.length}){" "}
+          </span>
+          {t("cart")}
+        </Link>
+        {client.role && (
+          <span className="header__log-out-button" onClick={logOut()}>
+            {t("log_out")}
+          </span>
+        )}
+        <div className="header__languages-list">
+          <button
+            className="header__button-globe"
+            onClick={() => setShowLanguages(!showLanguages)}
+          >
+            <GlobeAltIcon />
+          </button>
+          {showLanguages ? (
+            <ul className="header__languages">
+              {languages.map(({ code, name, country_code }) => (
+                <li key={country_code}>
+                  <button
+                    className="header__languages-item"
+                    onClick={() => {
+                      i18next.changeLanguage(code);
+                      setShowLanguages(false);
+                    }}
+                  >
+                    <span
+                      className={`flag-icon flag-icon-${country_code}`}
+                    ></span>
+                    {name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
-      </header>
-    );
-  }
+      </div>
+    </header>
+  );
 }
 
 function mapStateToProps(state) {

@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { setClient } from "../../../../redux/actions";
-import { auth } from "../../../../firebase";
+import firebase, { auth } from "../../../../firebase";
 import { useTranslation } from "react-i18next";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Input from "../../../UI/Input";
 import ButtonForm from "../../../UI/Buttons/FormButton";
 import Toast from "../../../UI/Toasts";
+import GoogleLogo from "../../../../icons/google-logo.png";
 
 import "./login.scss";
 
@@ -24,6 +25,7 @@ const SignupShema = Yup.object().shape({
 });
 
 function Login() {
+  let history = useHistory();
   const [toast, setToast] = useState("");
   const [toastText, setToastText] = useState("");
   const { t } = useTranslation();
@@ -66,6 +68,23 @@ function Login() {
       );
     });
   };
+
+  const googleAuth = () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        history.push("/");
+        console.log(result);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        console.log(error);
+      });
+  };
+
   return (
     <section className="sign-in">
       <Toast toastState={toast} toastText={toastText} />
@@ -79,6 +98,14 @@ function Login() {
       >
         <Form className="form">
           <div className="form__info">{renderInput()}</div>
+          <button className="sign-in__button" onClick={() => googleAuth()}>
+            <img
+              className="sign-in__button-logo"
+              src={GoogleLogo}
+              alt="Google logo"
+            />
+            Continue with Google
+          </button>
           <ButtonForm name={t("sign_in")} className={"form-button--width"} />
           <Link className="sign-in__registration-button" to="registration">
             {t("registration")}

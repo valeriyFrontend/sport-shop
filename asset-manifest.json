@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sport-shop/static/css/main.079894d4.chunk.css",
-    "main.js": "/sport-shop/static/js/main.6e76cc92.chunk.js",
-    "main.js.map": "/sport-shop/static/js/main.6e76cc92.chunk.js.map",
+    "main.js": "/sport-shop/static/js/main.ce3ec7da.chunk.js",
+    "main.js.map": "/sport-shop/static/js/main.ce3ec7da.chunk.js.map",
     "runtime-main.js": "/sport-shop/static/js/runtime-main.28be383e.js",
     "runtime-main.js.map": "/sport-shop/static/js/runtime-main.28be383e.js.map",
     "static/css/2.6f13f593.chunk.css": "/sport-shop/static/css/2.6f13f593.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.6f13f593.chunk.css",
     "static/js/2.9a310c1d.chunk.js",
     "static/css/main.079894d4.chunk.css",
-    "static/js/main.6e76cc92.chunk.js"
+    "static/js/main.ce3ec7da.chunk.js"
   ]
 }

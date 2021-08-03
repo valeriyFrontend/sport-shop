@@ -27,7 +27,7 @@ i18n
       caches: ["cookie"],
     },
     backend: {
-      loadPath: "/assets/locales/{{lng}}/translation.json",
+      loadPath: "/sport-shop/assets/locales/{{lng}}/translation.json",
     },
     react: { useSuspense: false },
   });
@@ -36,8 +36,8 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Route path="/" component={Main} />
-        <Route path="/admin" component={Admin} />
+        <Route path="/sport-shop/" component={Main} />
+        <Route path="/sport-shop/admin" component={Admin} />
       </Router>
     </div>
   );

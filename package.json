@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://valeriyfrontend.github.io/sport-shop",
+  "homepage": "http://valeriyfrontend.github.io/sport-shop/",
   "dependencies": {
     "@headlessui/react": "^1.3.0",
     "@heroicons/react": "^1.0.1",

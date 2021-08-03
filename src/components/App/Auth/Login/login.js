@@ -107,7 +107,10 @@ function Login() {
             Continue with Google
           </button>
           <ButtonForm name={t("sign_in")} className={"form-button--width"} />
-          <Link className="sign-in__registration-button" to="registration">
+          <Link
+            className="sign-in__registration-button"
+            to="/sport-shopregistration"
+          >
             {t("registration")}
           </Link>
         </Form>

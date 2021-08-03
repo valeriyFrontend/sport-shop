@@ -44,22 +44,22 @@ function Header({ items, client, fullPrice, setClient }) {
       <span className="header__button-menu" onClick={openNav}>
         <MenuIcon />
       </span>
-      <Link className="header__logo" to="/">
+      <Link className="header__logo" to="/sport-shop/">
         Sport-Shop
       </Link>
       <div className="header__info">
         {client.role === "admin" ? (
-          <Link className="header__user-role" to="/admin/catalog">
+          <Link className="header__user-role" to="/sport-shop/admin/catalog">
             {client.role}
           </Link>
         ) : client.role === "user" ? (
           ""
         ) : (
-          <Link className="header__user-role" to="/login">
+          <Link className="header__user-role" to="/sport-shop/login">
             {t("sign_in")}
           </Link>
         )}
-        <Link className="header__cart" to="/cart">
+        <Link className="header__cart" to="/sport-shop/cart">
           <span>
             ${fullPrice}.00 ({items.length}){" "}
           </span>

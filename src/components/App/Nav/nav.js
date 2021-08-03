@@ -22,22 +22,22 @@ function Navigation() {
         </span>
         <ul className="nav__list">
           <li className="nav__list-link">
-            <NavLink activeClassName="selected" exact to="/">
+            <NavLink activeClassName="selected" exact to="/sport-shop/">
               {t("home")}
             </NavLink>
           </li>
           <li className="nav__list-link">
-            <NavLink activeClassName="selected" to="/products">
+            <NavLink activeClassName="selected" to="/sport-shop/products">
               {t("shop")}
             </NavLink>
           </li>
           <li className="nav__list-link">
-            <NavLink activeClassName="selected" to="/about">
+            <NavLink activeClassName="selected" to="/sport-shop/about">
               {t("about")}
             </NavLink>
           </li>
           <li className="nav__list-link">
-            <NavLink activeClassName="selected" to="/contacts">
+            <NavLink activeClassName="selected" to="/sport-shop/contacts">
               {t("contacts")}
             </NavLink>
           </li>

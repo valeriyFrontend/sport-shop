@@ -37,7 +37,7 @@ function Slider({ slides, getSlides }) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <LinkButton name={t("shop_now")} path={"/products"} />
+      <LinkButton name={t("shop_now")} path="/sport-shop/products" />
     </section>
   );
 }
